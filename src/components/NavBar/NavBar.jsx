@@ -9,7 +9,7 @@ import CardWidget from "./CartWidget/CardWidget";
 
 const NavBar = () => {
   return (
-    <Navbar bg="dark" expand="lg" className="navbar-dark ">
+    <Navbar bg="dark" expand="lg" className="navbar-dark  w-100">
       <Navbar.Brand href="#">JMComputacion</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
