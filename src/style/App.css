@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(3, 4, 49);
+    opacity: 10;
+    color: #fff;
+}
+
+h1{
+    text-align: center;
+    color : #fff;
+    margin-top : 8rem;
+    margin-bottom: 4rem;
+}
