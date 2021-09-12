@@ -21,6 +21,8 @@ const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
 
+    const onAdd = (cant) => console.log(cant);
+
     useEffect(() => {
         getFetch.then(res => setProducts(res))
         .catch(err => console.error(err))
@@ -28,7 +30,7 @@ const ItemListContainer = () => {
 
     return (
         <div>
-            <ItemCount stock={5} initial={1}/>
+            <ItemCount stock={5} initial={1} onAdd={onAdd}/>
         </div>
     )
 }

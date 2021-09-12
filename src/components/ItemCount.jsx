@@ -1,30 +1,32 @@
-import React,{ useState } from 'react'
+import React, { useState } from "react";
 
-const ItemCount = ({item, stock, initial}) => {
+const ItemCount = ({ item, stock, initial, onAdd }) => {
+const [contador, setContador] = useState(parseInt(initial));
 
-    const [contador, setContador] = useState(parseInt(initial))
+const restarUno = () => setContador(contador - 1);
 
-    const restarUno = () => {setContador (contador - 1) };
-    const sumarUno = () => {setContador (contador + 1) };
+const sumarUno = () => setContador(contador + 1);
 
-    return (
-        <div>
-            <p>{contador}</p>
-            <br/>
-            <button
-            disabled= {contador <= 0}
-            onClick={restarUno}
-            >-</button>
+const agregarCarrito = () => onAdd(contador);
 
-            <button>Agregar al carro</button>
+return (
 
-            <button
-            disabled= {contador >= stock}
-            onClick={sumarUno}
-            >+</button>
+    <div className="text-center">
+        <p>{contador}</p>
+        <br />
+        <button disabled={contador <= 0} onClick={restarUno}>
+        -
+        </button>
 
-        </div>
-    )
-}
+        <button onClick={agregarCarrito}>Agregar al carro</button>
 
-export default ItemCount
+        <button disabled={contador >= stock} onClick={sumarUno}>
+        +
+        </button>
+    </div>
+
+
+);
+};
+
+export default ItemCount;
