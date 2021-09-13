@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-const ItemCount = ({ item, stock, initial, onAdd }) => {
+const ItemCount = ({ item, stock, initial}) => {
 const [contador, setContador] = useState(parseInt(initial));
-
-const restarUno = () => setContador(contador - 1);
 
 const sumarUno = () => setContador(contador + 1);
 
-const agregarCarrito = () => onAdd(contador);
+const agregarCarrito = () => console.log(contador);
+
+const restarUno = () => setContador(contador - 1);
 
 return (
 
