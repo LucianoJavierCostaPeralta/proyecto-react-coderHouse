@@ -1,25 +1,36 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import NavBar from '../components/NavBar/NavBar';
-import Title from'../components/Header/Title';
-import '../style/App.css';
-import ItemListContainer from '../components/ItemListContainer';
-import ItemDetailContainer from '../components/ItemDatail/ItemDetailContainer';
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavBar from "../components/NavBar/NavBar";
+import Title from "../components/Header/Title";
+import "../style/App.css";
+import ItemListContainer from "../components/ItemListContainer";
+import ItemDetailContainer from "../components/ItemDatail/ItemDetailContainer";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
-    
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
 
-      <NavBar/>
+        <Title title="JMComputacion" />
 
-      <Title title='JMComputacion'/>
+        <Switch>
+            <Route exact path="/">
 
-      <ItemListContainer />
+              <ItemListContainer />
+            </Route>
 
-      <ItemDetailContainer />
+            <Route exact path="/detalle">
 
-    </div>
+              <ItemDetailContainer />
+              
+            </Route>
+
+
+        </Switch>
+
+      </div>
+    </BrowserRouter>
   );
 }
 

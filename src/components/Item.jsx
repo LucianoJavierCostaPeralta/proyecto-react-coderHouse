@@ -2,8 +2,8 @@ import React from 'react'
 
 const Item = ({product}) => {
     return (
-        <>
-            <div key={product.id} className="card  mt-3 mb-3 m-auto w-50 ">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-4">
+            <div key={product.id} className="card  mt-3 mb-3 m-auto  ">
                         <div className="card-header">
                             <h5 className="card-title text-center">{product.description}</h5>
                         </div>
@@ -24,7 +24,7 @@ const Item = ({product}) => {
                             </button>
                         </div>
                     </div>
-        </>
+        </div>
     )
 }
 
