@@ -23,12 +23,10 @@ return (
         +
         </button>
 
-
-        
         <p className="contador mt-2">{contador}</p>
         
 
-      
+
     </div>
 
 

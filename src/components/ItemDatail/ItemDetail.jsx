@@ -12,7 +12,7 @@ const ItemDetail = ({ item }) => {
 
 
     return (
-        <div className="col-12 col-sm-10 col-lg-8 m-auto">
+        <div className="col-12 col-sm-10 col-lg-6 m-auto">
 
             <div key={item.id} className="card  mt-3 mb-3 m-auto  ">
                 <div className="card-header">

@@ -1,13 +1,14 @@
-import React, {useEffect, useState, useParams} from 'react'
+import React, {useEffect, useState} from 'react'
 import { getFetch } from '../../util/mock'
 import ItemDetail from './ItemDetail'
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState()
+    const [item, setItem] = useState({})
     const [loading, setLoading] = useState(true);
 
-   const { idF } = useParams();
+   const { idF } = useParams()
 
     useEffect(() => {
 
@@ -33,7 +34,8 @@ const ItemDetailContainer = () => {
     return (
         <div className=" container row text-center">
 
-    { loading ? <h4>Cargando</h4> :  item && <ItemDetail key={item[0].id} item={item[0]}/>}
+    { loading ? <h4>Cargando</h4> :
+    item && <ItemDetail key={item[0].id} item={item[0]}/>}
     
         </div>
     )
