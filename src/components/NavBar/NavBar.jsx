@@ -15,7 +15,7 @@ const NavBar = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">
           <Nav.Link href="/category/gabinete">Gabinetes</Nav.Link>
-          <Nav.Link href="/category/placa">PLacas</Nav.Link>
+          <Nav.Link href="/category/placa">Placas</Nav.Link>
           <Nav.Link href="/category/procesadores">Procesadores</Nav.Link>
           <NavDropdown title="Perifericos" id="basic-nav-dropdown">
           <NavDropdown.Item href="/category/teclado">Teclado</NavDropdown.Item>
