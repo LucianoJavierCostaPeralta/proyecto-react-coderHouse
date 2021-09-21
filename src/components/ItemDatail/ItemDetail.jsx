@@ -1,30 +1,42 @@
 import React from 'react'
+import ItemCount from '../ItemCount'
+const ItemDetail = ({ item }) => {
 
-const ItemDetail = ({item}) => {
+    const formatoMoneda = (valor) =>
+    valor.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2,
+    });
+
+
+
     return (
-        <>
-            <div key={item.id} className="card  mt-3 mb-3 m-auto w-50 ">
-                        <div className="card-header">
-                            <h5 className="card-title text-center">{item.description}</h5>
-                        </div>
-                        <div className="card-body">
-                            <img src={item.foto} className="card-img-top w-50" alt="imagen del itemo" />
-                            <p className="card-text">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                Placeat excepturi illo harum esse quasi laborum expedita,
-                                dolorem nemo quo veniam consequuntur provident minima deleniti
-                                quibusdam labore possimus aut quia molestias!
-                            </p>
-                        </div>
-                        <div className="card-footer">
-                            <button
-                                className="btn btn-outline-primary btn-block "
-                            >
-                                Agregar al carrito
-                            </button>
-                        </div>
-                    </div>
-        </>
+        <div className="col-12 col-sm-10 col-lg-8 m-auto">
+
+            <div key={item.id} className="card  mt-3 mb-3 m-auto  ">
+                <div className="card-header">
+                    <h5 className="card-title text-center">{item.title}</h5>
+                </div>
+                <div className="card-body">
+                    <img src={item.photoUrl} className="card-img-top w-50" alt="imagen del itemo" />
+                </div>
+                <div className="card-footer">
+                    
+                    <p className="card-text-p mt-1">
+                        { `${formatoMoneda(item.precio)}`}
+                    </p>
+
+                    <ItemCount stock={5} initial={1} />
+                    {/* <button
+                        className="btn btn-outline-primary btn-block "
+                    >
+                        Agregar al carrito
+                    </button> */}
+                </div>
+            </div>
+
+        </div>
     )
 }
 

@@ -1,22 +1,41 @@
-import React, {useEffect, useState} from 'react'
-import { getFetchUno } from '../../util/mock'
+import React, {useEffect, useState, useParams} from 'react'
+import { getFetch } from '../../util/mock'
 import ItemDetail from './ItemDetail'
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState({})
+    const [item, setItem] = useState()
+    const [loading, setLoading] = useState(true);
+
+   const { idF } = useParams();
 
     useEffect(() => {
 
-        getFetchUno
-        .then(res => setItem(res))
+        getFetch
+        .then((res) => {
+            if (idF) {
+                
+                const idFilter = res.filter(
+                    (item) => item.id === parseInt(idF)
+                )
+                setItem(idFilter)
+            } else {
+                
+                setItem(res)
+            }
+        })
 
-    }, [])
+        .catch((err) => console.error(err))
+        .finally(() => setLoading(false));
+
+    }, [idF])
 
     return (
-        <>
-            <ItemDetail key={item} item={item}/>
-        </>
+        <div className=" container row text-center">
+
+    { loading ? <h4>Cargando</h4> :  item && <ItemDetail key={item[0].id} item={item[0]}/>}
+    
+        </div>
     )
 }
 

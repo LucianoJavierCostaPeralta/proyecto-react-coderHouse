@@ -4,7 +4,7 @@ import Title from "../components/Header/Title";
 import "../style/App.css";
 import ItemListContainer from "../components/ItemListContainer";
 import ItemDetailContainer from "../components/ItemDatail/ItemDetailContainer";
-import { BrowserRouter, Switch, Route} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -15,16 +15,21 @@ function App() {
         <Title title="JMComputacion" />
 
         <Switch>
-            <Route exact path="/">
+          <Route exact path="/">
 
-              <ItemListContainer />
-            </Route>
+            <ItemListContainer />
+          </Route>
 
-            <Route exact path="/detalle">
+          <Route exact path="/category/:idCategory">
 
-              <ItemDetailContainer />
-              
-            </Route>
+            <ItemListContainer />
+          </Route>
+
+          <Route exact path=" /item/:idF">
+
+            <ItemDetailContainer />
+
+          </Route>
 
 
         </Switch>

@@ -1,25 +1,38 @@
 import React from "react";
-import ItemCount from "./ItemCount";
 import ItemList from './ItemList';
 import { useState, useEffect } from "react";
-import {getFetch}  from "../util/mock";
+import { getFetch } from "../util/mock";
+import { useParams } from "react-router";
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { idCategory } = useParams();
+
     useEffect(() => {
         getFetch
-            .then((res) => setProducts(res))
+            .then((res) => {
+                if (idCategory) {
+                    const categoryFilter = res.filter(
+                        (item) => item.description.toLowerCase() === idCategory
+                    )
+                    setProducts(categoryFilter)
+                } else {
+                    
+                    setProducts(res)
+                }
+            })
+
             .catch((err) => console.error(err))
             .finally(() => setLoading(false));
-    }, []);
+    }, [idCategory]);
 
 
 
     return (
         <div className="container">
             {loading ? <h2 >Cargando...</h2> : <ItemList products={products} />}
-            <ItemCount stock={5} initial={1} />
+            
         </div>
     );
 };

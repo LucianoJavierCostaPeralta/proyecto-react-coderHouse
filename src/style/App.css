@@ -6,11 +6,24 @@ body {
 
 h1{
     text-align: center;
-    margin-top : 4rem;
+    margin-top : 12rem;
     margin-bottom: 4rem;
 }
 
 .card {
     color : #000;
+    
+}
+
+.card-text-p { 
+    color: #000;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.contador{
+    color: #000;
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
