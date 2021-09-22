@@ -6,26 +6,49 @@ import CardWidget from "../CartWidget/CardWidget";
 import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+
+
 const NavBar = () => {
   return (
 
     <Navbar bg="dark" expand="lg" className="navbar-dark  fixed-top">
     <Container>
         
-      <Navbar.Brand href="/">JMComputacion</Navbar.Brand>
+      <Navbar.Brand >
+        <Link className="link" to="/">JMComputacion</Link>
+      </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">
-          <Nav.Link href="/category/gabinete">Gabinetes</Nav.Link>
-          <Nav.Link href="/category/placa">Placas</Nav.Link>
-          <Nav.Link href="/category/procesadores">Procesadores</Nav.Link>
+          
+          
+          <Nav.Link>
+            <Link className="link" to="/category/gabinete">Gabinete</Link>
+          </Nav.Link>
+          <Nav.Link >
+              <Link className="link" to="/category/placa">Placa</Link>
+          </Nav.Link>
+          <Nav.Link >
+              <Link className="link" to="/category/procesadores">Procesadores</Link>
+          </Nav.Link>
           <NavDropdown title="Perifericos" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/category/teclado">Teclado</NavDropdown.Item>
-          <NavDropdown.Item href="/category/mouse">Mouse</NavDropdown.Item>
-          <NavDropdown.Item href="/category/auricular">Auriculares</NavDropdown.Item>
-        </NavDropdown>
-          <Nav.Link href="/category/monitor">Monitores</Nav.Link>
+
+            <NavDropdown.Item >
+              <Link className="link" to="/category/teclado">Teclado</Link>
+          </NavDropdown.Item>
+
+          <NavDropdown.Item >
+              <Link className="link" to="/category/mouse">Mouse</Link>
+          </NavDropdown.Item>
+
+            <NavDropdown.Item href="/category/">
+            <Link className="link" to="/category/auricular">Auricular</Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link >
+              <Link className="link" to="/category/monitor">Monitores</Link>
+          </Nav.Link>
           
         </Nav>
         <CardWidget/>
