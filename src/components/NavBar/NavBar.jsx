@@ -4,13 +4,16 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import CardWidget from "../CartWidget/CardWidget";
 import { NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
 
     <Navbar bg="dark" expand="lg" className="navbar-dark  fixed-top">
     <Container>
+        
       <Navbar.Brand href="/">JMComputacion</Navbar.Brand>
+
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="m-auto">

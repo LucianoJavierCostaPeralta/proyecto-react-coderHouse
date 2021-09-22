@@ -11,6 +11,7 @@ import ItemListContainer from "../components/ItemListContainer/ItemListContainer
 function App() {
   return (
     <BrowserRouter>
+
       <div className="App">
 
         <NavBar />
@@ -18,29 +19,19 @@ function App() {
         <Title title="JMComputacion" />
 
         <Switch>
-          <Route exact path="/">
 
-            <ItemListContainer />
-          </Route>
+          <Route component={ItemListContainer} exact path="/"/>
 
-          <Route exact path="/category/:idCategory">
+          <Route component={ItemListContainer} exact path="/category/:idCategory"/>
 
-            <ItemListContainer />
-          </Route>
+          <Route component={ItemDetailContainer} exact path="/item/:idF"/>
 
-          <Route exact path="/item/:idF">
-
-            <ItemDetailContainer />
-
-          </Route>
-
-          <Route exact path="/cart">
-              <Cart/>
-          </Route>
+          <Route component={Cart} exact path="/cart" />
 
         </Switch>
 
       </div>
+
     </BrowserRouter>
   );
 }
