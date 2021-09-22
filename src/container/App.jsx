@@ -2,14 +2,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "../components/NavBar/NavBar";
 import Title from "../components/Header/Title";
 import "../style/App.css";
-import ItemListContainer from "../components/ItemListContainer";
-import ItemDetailContainer from "../components/ItemDatail/ItemDetailContainer";
+
+import ItemDetailContainer from "../components/ItemDatailContainer/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Cart from "../components/Cart/Cart";
+import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+
         <NavBar />
 
         <Title title="JMComputacion" />
@@ -31,6 +34,9 @@ function App() {
 
           </Route>
 
+          <Route exact path="/cart">
+              <Cart/>
+          </Route>
 
         </Switch>
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { getFetch } from '../../util/mock'
-import ItemDetail from './ItemDetail'
+import ItemDetail from '../ItemDatail/ItemDetail'
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {

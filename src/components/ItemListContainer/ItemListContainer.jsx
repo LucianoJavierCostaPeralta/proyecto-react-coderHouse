@@ -1,8 +1,8 @@
 import React from "react";
-import ItemList from './ItemList';
 import { useState, useEffect } from "react";
-import { getFetch } from "../util/mock";
+import { getFetch } from "../../util/mock";
 import { useParams } from "react-router-dom";
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
