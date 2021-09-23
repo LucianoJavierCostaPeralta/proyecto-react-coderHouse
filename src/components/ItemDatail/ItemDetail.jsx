@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 const ItemDetail = ({ item }) => {
+
+    const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
 
     const formatoMoneda = (valor) =>
     valor.toLocaleString("en-US", {
@@ -9,6 +11,10 @@ const ItemDetail = ({ item }) => {
         minimumFractionDigits: 2,
     });
 
+    const onAdd = (contador) =>{
+        console.log(contador);
+        setCantidadSeleccionada(contador)
+    }
 
 
     return (
@@ -27,7 +33,7 @@ const ItemDetail = ({ item }) => {
                         { `${formatoMoneda(item.precio)}`}
                     </p>
 
-                    <ItemCount stock={5} initial={1} />
+                    <ItemCount stock={5} initial={1}  onAdd={onAdd}/>
                     {/* <button
                         className="btn btn-outline-primary btn-block "
                     >
