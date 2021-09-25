@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React, {  } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import {useCartContext} from'../../Context/CartContext'
+
 const ItemDetail = ({ item }) => {
-
-    const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
-
+    const { addToCart } = useCartContext();
+    
     const formatoMoneda = (valor) =>
     valor.toLocaleString("en-US", {
         style: "currency",
         currency: "USD",
         minimumFractionDigits: 2,
     });
-
     const onAdd = (contador) =>{
-        console.log(contador);
-        setCantidadSeleccionada(contador)
+        
+        addToCart({
+            product : item ,
+            cantidad : contador
+        })
+        
     }
 
 
