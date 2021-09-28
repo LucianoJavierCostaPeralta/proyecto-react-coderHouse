@@ -1,30 +1,39 @@
 import { useCartContext } from "../../Context/CartContext";
 
 const Cart = () => {
-  const { cartList } = useCartContext();
+  const { cartList, formatoMoneda } = useCartContext();
 
-  console.log(`cart ${cartList}`);
 
   return (
-    <div className="  col-6 col-sm-6 col-md-6 col-lg-4 m-auto ">
-      {cartList.map((item) => (
-        <div className="card mt-3 mb-3 m-auto ">
-          <div className="card-header">
-            <h5>{item.product.title}</h5>
-          </div>
-          <div className="card-body">
-            <img
-              src={item.product.photoUrl}
-              className="card-img-top w-25"
-              alt=""
-            />
-          </div>
-          <div className="card-footer ">
-            <p className="card-text-p">{`$ ${item.product.precio}`}</p>
-          </div>
+
+    <div className="container row">
+      <div className="col-8 col-sm-8 col-md-8 col-lg-6">
+        
+          {cartList.map((item) => (
+            <div className="card mt-3 mb-3 m-auto ">
+              <div className="card-header">
+                <h5>{item.title}</h5>
+              </div>
+              <div className="card-body">
+                <img
+                  src={item.photo}
+                  className="card-img-top w-25"
+                  alt=""
+                />
+              </div>
+              <div className="card-footer row text-center">
+                <p className="card-text-p col-12 col-sm-10 col-md-8 col-lg-6">{`${formatoMoneda(item.precio)}`}</p>
+
+                <p className=" card-text-p col-12 col-sm-10 col-md-8 col-lg-6">{`Cantidad :  ${item.cantidad} `}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
     </div>
+
+
+
+
   );
 };
 

@@ -1,25 +1,24 @@
-import React, {  } from 'react'
+import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import {useCartContext} from'../../Context/CartContext'
 
-const ItemDetail = ({ item }) => {
-    const { addToCart } = useCartContext();
-    
-    const formatoMoneda = (valor) =>
-    valor.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 2,
-    });
-    const onAdd = (contador) =>{
-        
-        addToCart({
-            product : item ,
-            cantidad : contador
-        })
-        
-    }
 
+const ItemDetail = ({ item }) => {
+    const { addToCart, formatoMoneda } = useCartContext();
+
+
+    const onAdd = (contador) =>{
+
+        addToCart({
+            id : item.id,
+            photo : item.photoUrl ,
+            title : item.title , 
+            precio : item.precio , 
+            cantidad : contador,
+            totalP : contador * item.precio
+        })
+
+    }
 
     return (
         <div className="col-12 col-sm-10 col-lg-6 m-auto">
@@ -37,12 +36,10 @@ const ItemDetail = ({ item }) => {
                         { `${formatoMoneda(item.precio)}`}
                     </p>
 
-                    <ItemCount stock={5} initial={1}  onAdd={onAdd}/>
-                    {/* <button
-                        className="btn btn-outline-primary btn-block "
-                    >
-                        Agregar al carrito
-                    </button> */}
+                    <ItemCount
+                    stock={5} 
+                    initial={1}  
+                    onAdd={onAdd}/>
                 </div>
             </div>
 

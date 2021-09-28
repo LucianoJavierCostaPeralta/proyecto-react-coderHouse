@@ -15,7 +15,7 @@ function App() {
   return (
     <CartContextProvider>
       <BrowserRouter>
-        <div className="App">
+        <div className="App ">
           <NavBar />
 
           <Title title="JMComputacion" />
@@ -32,6 +32,9 @@ function App() {
             <Route component={ItemDetailContainer} exact path="/item/:idF" />
 
             <Route component={Cart} exact path="/cart" />
+
+            
+            
           </Switch>
         </div>
       </BrowserRouter>
