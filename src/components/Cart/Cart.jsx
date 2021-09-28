@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../Context/CartContext";
 
 const Cart = () => {
@@ -6,9 +7,11 @@ const Cart = () => {
 
   return (
 
-    <div className="container row">
-      <div className="col-8 col-sm-8 col-md-8 col-lg-6">
-        
+    <div className="container-fluid ">
+
+      <div className="row">
+        <div className="col-10 col-sm-10 col-md-8 col-lg-6">
+
           {cartList.map((item) => (
             <div className="card mt-3 mb-3 m-auto ">
               <div className="card-header">
@@ -29,6 +32,13 @@ const Cart = () => {
             </div>
           ))}
         </div>
+          
+      </div>
+      <div className="d-flex justify-content-center">
+        <Link to={'/'}>
+            <button type="button" class="btn btn-warning">SEGUIR COMPRANDO</button>
+        </Link>
+      </div>
     </div>
 
 
