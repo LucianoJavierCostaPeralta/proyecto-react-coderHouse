@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react";
 
 const CartContext = createContext([]);
 
-export const useCartContext = () => useContext(CartContext);
+export  const useCartContext = () => useContext(CartContext);
 
 export const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([]);
@@ -29,14 +29,6 @@ export const CartContextProvider = ({ children }) => {
 
         }
 
-        // if (cartList.some((idex) => idex.id === objetItem.id)) {
-        //     cartList.find((idex) => idex.id === objetItem.id).totalP +=
-        //         objetItem.cantidad * objetItem.precio;
-        //     cartList.find((idex) => idex.id === objetItem.id);
-        //     setCartList(cartList);
-        // } else {
-        //     setCartList([...cartList, objetItem]);
-        // }
     };
     const clearList = () => setCartList([]);
 
@@ -60,6 +52,8 @@ export const CartContextProvider = ({ children }) => {
         setCartList(cartList.filter((itemNvo) => itemNvo.item.id !== id)); 
     };
 
+    const iconCart = () => cartList.reduce((acum, valor) => acum + valor.cantidad , 0)
+
     return (
         <CartContext.Provider
             value={{
@@ -68,7 +62,8 @@ export const CartContextProvider = ({ children }) => {
                 clearList,
                 formatoMoneda,
                 precioTotal,
-                removeItem
+                removeItem,
+                iconCart
 
             }}
         >

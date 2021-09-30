@@ -5,10 +5,15 @@ import Container from "react-bootstrap/Container";
 import CardWidget from "../CartWidget/CardWidget";
 import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../Context/CartContext";
+import '../../style/App.css'
 
 
 
 const NavBar = () => {
+
+  const {iconCart} =useCartContext()
+
   return (
 
     <Navbar bg="dark" expand="lg" className="navbar-dark  fixed-top">
@@ -56,9 +61,18 @@ const NavBar = () => {
           </Nav.Link>
           
         </Nav>
-        <CardWidget/>
       </Navbar.Collapse>
     </Container>
+      <Link  className="link" exact to={'/cart' }>
+        <div className="text-center ">
+        <CardWidget />
+        <span className="bg-info text-white  iconCart p-1">
+        {iconCart()}
+        </span>
+
+        </div>
+
+      </Link>
   </Navbar>
   );
 };

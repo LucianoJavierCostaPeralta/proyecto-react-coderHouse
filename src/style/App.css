@@ -12,7 +12,6 @@ h1{
 
 .card {
     color : #000;
-    
 }
 
 .card-text-p { 
@@ -30,4 +29,9 @@ h1{
 .link {
     color: #888;
     text-decoration: none;
+}
+
+.iconCart {
+    font-size: 1.3rem;
+    
 }
