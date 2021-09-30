@@ -4,19 +4,31 @@ import {useCartContext} from'../../Context/CartContext'
 
 
 const ItemDetail = ({ item }) => {
-    const { addToCart, formatoMoneda } = useCartContext();
+    const { addToCart, formatoMoneda, cartList } = useCartContext();
 
-
+    
+    
+    
     const onAdd = (contador) =>{
+        let qtCart = 0 ; 
+        if (cartList.length > 0 ) {
+            
+            const cartListFilter = cartList.filter(it => it.id === item.id);
+            
+            qtCart = cartListFilter.cantidad;
 
-        addToCart({
-            id : item.id,
-            photo : item.photoUrl ,
-            title : item.title , 
-            precio : item.precio , 
-            cantidad : contador,
-            totalP : contador * item.precio
-        })
+            console.log(qtCart);
+        } 
+
+        if (qtCart + contador >= 5 ) {
+            alert('Stcok insuficiente')
+        } else {
+            
+            addToCart({
+                cantidad : contador,
+                item : item
+            })
+        }
 
     }
 
@@ -37,9 +49,10 @@ const ItemDetail = ({ item }) => {
                     </p>
 
                     <ItemCount
-                    stock={5} 
+                    stock={5}
                     initial={1}  
-                    onAdd={onAdd}/>
+                    onAdd={onAdd}
+                    />
                 </div>
             </div>
 

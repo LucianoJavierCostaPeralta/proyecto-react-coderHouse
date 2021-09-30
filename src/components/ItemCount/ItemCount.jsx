@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ItemCount = ({ item, stock, initial, onAdd }) => {
+const ItemCount = ({ item, stock, initial, onAdd  }) => {
     const [contador, setContador] = useState(parseInt(initial));
     const [cambiarBoton, setCambiarBoton] = useState(true)
 
     const sumarUno = () => setContador(contador + 1);
 
+
     const agregarCarrito = () => {
+
+        
+
         onAdd(contador);
         setCambiarBoton(false)
     }

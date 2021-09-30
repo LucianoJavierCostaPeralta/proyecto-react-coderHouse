@@ -9,7 +9,6 @@ const productos = [
         title : 'GAB. AUREOX ORION 350G ARX',
         description: "Gabinete",
         precio : 7621.73
-
     },
     {
         id: 2,
@@ -17,7 +16,6 @@ const productos = [
         title : 'GAB. RAIDMAX GALAXY X230FAB',
         description: "Gabinete",
         precio : 9834.79
-    
     },
     {
         id: 3,
