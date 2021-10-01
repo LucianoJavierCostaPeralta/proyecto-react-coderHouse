@@ -17,7 +17,7 @@ const Cart = () => {
             <h2>Carrito vacio</h2>
             <Link to={"/"}>
             <button type="button" className="btn btn-warning  ">
-              Seguir comprando
+              ir a la tienda 
             </button>
           </Link>
           </div>
