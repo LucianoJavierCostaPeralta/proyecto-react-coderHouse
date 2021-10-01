@@ -12,7 +12,7 @@ import '../../style/App.css'
 
 const NavBar = () => {
 
-  const {iconCart} =useCartContext()
+  const {iconCart, cartList} =useCartContext()
 
   return (
 
@@ -65,10 +65,17 @@ const NavBar = () => {
     </Container>
       <Link  className="link" exact to={'/cart' }>
         <div className="text-center ">
-        <CardWidget />
-        <span className="bg-info text-white  iconCart p-1">
-        {iconCart()}
-        </span>
+        
+        {cartList.length === 0 ?
+            <></>
+          :
+          <div>
+            <CardWidget />
+            <span className="bg-info text-white  iconCart p-1">
+            {iconCart()}
+            </span>
+          </div>
+        }
 
         </div>
 

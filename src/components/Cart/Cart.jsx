@@ -10,7 +10,21 @@ const Cart = () => {
 
   return (
     <div className="container ">
-      <div className="row text-center">
+        {cartList.length === 0 ?
+          <div className="row text-center">
+
+          <div className="col-12">
+            <h2>Carrito vacio</h2>
+            <Link to={"/"}>
+            <button type="button" className="btn btn-warning  ">
+              Seguir comprando
+            </button>
+          </Link>
+          </div>
+          </div>
+
+          :
+          <div className="row text-center">
         {cartList.map((item, index) => (
           <div
             key={index.id}
@@ -53,15 +67,6 @@ const Cart = () => {
           )}`}</h3>
         </div>
 
-        
-        <div className="col-6 col-sm-6 col-md-6 col-lg-6  mt-2 mb-2 ">
-          <Link to={"/"}>
-            {" "}
-            <button type="button" className="btn btn-warning  ">
-              Seguir comprando
-            </button>
-          </Link>
-        </div>
         <div className="col-6 col-sm-6 col-md-6 col-lg-6  mt-2 mb-2">
           <button
             type="button"
@@ -71,7 +76,18 @@ const Cart = () => {
             Borrar carrito
           </button>
         </div>
+        <div className="col-6 col-sm-6 col-md-6 col-lg-6  mt-2 mb-2">
+        <Link to={"/"}>
+            <button type="button" className="btn btn-warning  ">
+              Seguir comprando
+            </button>
+          </Link>
+        </div>
+
+
       </div>
+      }
+      
     </div>
   );
 };
