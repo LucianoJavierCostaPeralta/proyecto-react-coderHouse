@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getFetch } from "../../util/mock";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
+import { getFirestore } from "../../services/getFirebase";
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -10,21 +11,61 @@ const ItemListContainer = () => {
     const { idCategory } = useParams();
 
     useEffect(() => {
-        getFetch
-            .then((res) => {
-                if (idCategory) {
-                    const categoryFilter = res.filter(
-                        (item) => item.description.toLowerCase() === idCategory
-                    )
-                    setProducts(categoryFilter)
-                } else {
-                    
-                    setProducts(res)
-                }
-            })
 
-            .catch((err) => console.error(err))
-            .finally(() => setLoading(false));
+        const dbQuery = getFirestore()
+
+
+        if (idCategory) {
+            dbQuery.collection('items').where('categoryId', '==', idCategory).get()
+                .then(res => {
+                    setProducts(
+                        res.docs.map(product => (
+                            {
+                                id: product.id,
+                                ...product.data()
+                            }
+                        ))
+                    )
+                })
+                .catch((err) => console.error(err))
+                .finally(() => setLoading(false));
+
+
+        } else {
+
+            dbQuery.collection('items').get()
+                .then(res => {
+                    setProducts(
+                        res.docs.map(product => (
+                            {
+                                id: product.id,
+                                ...product.data()
+                            }
+                        ))
+                    )
+                })
+                .catch((err) => console.error(err))
+                .finally(() => setLoading(false));
+        }
+
+
+
+
+        // getFetch
+        //     .then((res) => {
+        //         if (idCategory) {
+        //             const categoryFilter = res.filter(
+        //                 (item) => item.description.toLowerCase() === idCategory
+        //             )
+        //             setProducts(categoryFilter)
+        //         } else {
+
+        //             setProducts(res)
+        //         }
+        //     })
+
+        //     .catch((err) => console.error(err))
+        //     .finally(() => setLoading(false));
     }, [idCategory]);
 
 
@@ -32,7 +73,7 @@ const ItemListContainer = () => {
     return (
         <div className="container">
             {loading ? <h2 >Cargando...</h2> : <ItemList products={products} />}
-            
+
         </div>
     );
 };

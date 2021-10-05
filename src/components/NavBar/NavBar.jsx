@@ -70,10 +70,10 @@ const NavBar = () => {
             <></>
           :
           <div>
-            <CardWidget />
-            <span className="bg-info text-white  iconCart p-1">
+            <span className=" text-white  iconCart ">
             {iconCart()}
             </span>
+            <CardWidget />
           </div>
         }
 

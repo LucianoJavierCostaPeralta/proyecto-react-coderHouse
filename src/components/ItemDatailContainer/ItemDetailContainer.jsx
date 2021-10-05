@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { getFetch } from '../../util/mock'
 import ItemDetail from '../ItemDatail/ItemDetail'
 import { useParams } from "react-router-dom";
+import { getFirestore } from '../../services/getFirebase';
 
 const ItemDetailContainer = () => {
 
@@ -11,6 +12,16 @@ const ItemDetailContainer = () => {
    const { idF } = useParams()
 
     useEffect(() => {
+        // const dbQuery = getFirestore()
+        
+        // dbQuery.collection('items').doc(idF).get()
+        // .then(res => {
+        //     setItem(
+        //        res.doc
+        //     )
+        // })
+        // .catch((err) => console.error(err))
+        // .finally(() => setLoading(false));
 
         getFetch
         .then((res) => {

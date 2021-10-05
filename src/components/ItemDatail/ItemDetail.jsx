@@ -10,25 +10,14 @@ const ItemDetail = ({ item }) => {
     
     
     const onAdd = (contador) =>{
-        let qtCart = 0 ; 
-        if (cartList.length > 0 ) {
-            
-            const cartListFilter = cartList.filter(it => it.id === item.id);
-            
-            qtCart = cartListFilter.cantidad;
+    
 
-            console.log(qtCart);
-        } 
-
-        if (qtCart + contador >= 5 ) {
-            alert('Stcok insuficiente')
-        } else {
-            
+      
             addToCart({
                 cantidad : contador,
                 item : item
             })
-        }
+        
 
     }
 
