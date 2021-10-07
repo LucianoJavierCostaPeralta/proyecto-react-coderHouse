@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getFetch } from "../../util/mock";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import { getFirestore } from "../../services/getFirebase";

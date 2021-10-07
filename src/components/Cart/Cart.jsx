@@ -61,6 +61,7 @@ const Cart = () => {
             
           ))}
 
+
           <div className="col-12 text-center  bg-success text-dark mt-2 mb-2 ">
             <h3 calssName="">{`Total a pagar :  ${formatoMoneda(
               precioTotal()
@@ -82,6 +83,14 @@ const Cart = () => {
                 Seguir comprando
               </button>
             </Link>
+          </div>
+
+          <div className="col-8 mt-4 m-auto bg-dark p-2 mb-4" >
+            <form >
+            <input class="form-control mb-1" type="text" placeholder="Ingrese su nombre"/>
+            <input class="form-control mb-1" type="text" placeholder="Ingrese su nombre"/>
+            <input class="form-control mb-1" type="text" placeholder="Ingrese su nombre"/>
+            </form>
           </div>
         </div>
       )}
