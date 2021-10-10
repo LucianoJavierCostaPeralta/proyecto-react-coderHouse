@@ -36,7 +36,7 @@ const Cart = () => {
         return {id, title, price}   
     })
 
-
+    
     const db = getFirestore()
     db.collection('orders').add(orden)
     .then(resp => alert(`Orden de compra ${resp.id}`))
