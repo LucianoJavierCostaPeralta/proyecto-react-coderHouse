@@ -4,13 +4,9 @@ import { Link } from "react-router-dom";
 const ItemCount = ({ item, stock, initial, onAdd  }) => {
     const [contador, setContador] = useState(parseInt(initial));
     const [cambiarBoton, setCambiarBoton] = useState(true)
-
     const sumarUno = () => setContador(contador + 1);
 
-
     const agregarCarrito = () => {
-
-        
 
         onAdd(contador);
         setCambiarBoton(false)
@@ -21,10 +17,6 @@ const ItemCount = ({ item, stock, initial, onAdd  }) => {
     return (
 
         <div className="  text-center ">
-
-
-
-
             {cambiarBoton ?
                 <div>
 
@@ -51,15 +43,7 @@ const ItemCount = ({ item, stock, initial, onAdd  }) => {
                     </Link>
                 </div>
             }
-
-
-
-
-
-
         </div>
-
-
     );
 };
 
