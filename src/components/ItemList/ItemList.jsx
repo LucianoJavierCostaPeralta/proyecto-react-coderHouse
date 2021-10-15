@@ -5,7 +5,7 @@ const ItemList =  memo(
 
     ({ products}) => {
         return (
-            <div className="row ">
+            <div className="row text-center ">
                 {
                     products.map((product) => <Item key={product.id} product={product}/>)
                 }
