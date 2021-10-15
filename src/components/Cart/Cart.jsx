@@ -154,6 +154,8 @@ const Cart = () => {
             </Link>
           </div>
 
+            
+
           <div className="col-8 mt-4 m-auto bg-dark p-2 mb-4" >
             <form onChange={handleOnChange}  onSubmit={handleOnSubmit}>
               <input class="form-control mb-1" type='text'
@@ -186,5 +188,7 @@ const Cart = () => {
     </div>
   );
 };
+
+//Formulario 
 
 export default Cart;
