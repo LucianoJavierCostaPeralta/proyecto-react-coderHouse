@@ -10,69 +10,29 @@ const ItemListContainer = () => {
     const { idCategory } = useParams();
 
     useEffect(() => {
+        const dbQuery = getFirestore();
 
-        const dbQuery = getFirestore()
+        const filterQuery = idCategory
+            ? dbQuery.collection("items").where("categoryId", "==", idCategory)
+            : dbQuery.collection("items");
 
-
-        if (idCategory) {
-            dbQuery.collection('items').where('categoryId', '==', idCategory).get()
-                .then(res => {
-                    setProducts(
-                        res.docs.map(product => (
-                            {
-                                id: product.id,
-                                ...product.data()
-                            }
-                        ))
-                    )
-                })
-                .catch((err) => console.error(err))
-                .finally(() => setLoading(false));
-
-
-        } else {
-
-            dbQuery.collection('items').get()
-                .then(res => {
-                    setProducts(
-                        res.docs.map(product => (
-                            {
-                                id: product.id,
-                                ...product.data()
-                            }
-                        ))
-                    )
-                })
-                .catch((err) => console.error(err))
-                .finally(() => setLoading(false));
-        }
-
-
-
-
-        // getFetch
-        //     .then((res) => {
-        //         if (idCategory) {
-        //             const categoryFilter = res.filter(
-        //                 (item) => item.description.toLowerCase() === idCategory
-        //             )
-        //             setProducts(categoryFilter)
-        //         } else {
-
-        //             setProducts(res)
-        //         }
-        //     })
-
-        //     .catch((err) => console.error(err))
-        //     .finally(() => setLoading(false));
+        filterQuery
+            .get()
+            .then((res) => {
+                setProducts(
+                    res.docs.map((product) => ({
+                        id: product.id,
+                        ...product.data(),
+                    }))
+                );
+            })
+            .catch((err) => console.error(err))
+            .finally(() => setLoading(false));
     }, [idCategory]);
-
-
 
     return (
         <div className="container">
-            {loading ? <h2 >Cargando...</h2> : <ItemList products={products} />}
-
+            {loading ? <h2> Cargando... </h2> : <ItemList products={products} />}
         </div>
     );
 };
