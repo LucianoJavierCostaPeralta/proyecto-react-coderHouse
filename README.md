@@ -19,5 +19,5 @@
 
  ### proyecto-react-coderHouse requires Node.js to run.
 
- $ cd proyecto-react-coderHouse
- $ npm install
+ ## $ cd proyecto-react-coderHouse
+ ## $ npm install
