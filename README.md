@@ -21,3 +21,5 @@
 
  ## $ cd proyecto-react-coderHouse
  ## $ npm install
+
+- Copia 
