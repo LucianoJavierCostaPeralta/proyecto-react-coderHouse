@@ -17,9 +17,21 @@
 - [Firebase] - Libreria de servivios, que nos facilita y permite desarrollar el front-end, sin preocuparnos del back.end. Nos facilita esta solucion altamente desarrollada y probada.
 - [react-router-dom] - Usado para el sistema de navegacion entre paginas, para que esta funcione como spa.
 
- ### proyecto-react-coderHouse requires Node.js to run.
+### Instalacion 
 
- ## $ cd proyecto-react-coderHouse
- ## $ npm install
+coderhouse-ecommerce requires [Node.js](https://nodejs.org/) to run. requires [Node.js](https://nodejs.org/) to run.
 
-- Copia  aaaaa
+```sh
+$ cd proyecto-react-coderHouse
+
+$ npm install
+```
+
+
+License
+----
+
+MIT
+
+
+
