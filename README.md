@@ -19,7 +19,7 @@
 
 ### Instalacion 
 
-coderhouse-ecommerce requires [Node.js](https://nodejs.org/) to run. requires [Node.js](https://nodejs.org/) to run.
+proyecto-react-coderHouse requires [Node.js](https://nodejs.org/) to run. requires [Node.js](https://nodejs.org/) to run.
 
 ```sh
 $ cd proyecto-react-coderHouse
